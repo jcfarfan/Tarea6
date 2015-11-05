@@ -34,7 +34,7 @@ void escribirArreglos(float *t, float *x, float *y, float *z,int n_x, float ener
 
 int main(int argc, char **argv){
   float energia_calc,energia,alpha,alpha_calc, magnitudVelocidadInicia,magnitudPosicion,ti,tf,v,gamma;
-  float *velI,*posI,*x,*y,*z,*t, *matrizAResolver,*matricitaL,*matricitaLT,*matricitaY,*matricitaZ,*matricitaX; 
+  float *velI,*posI,*x,*y,*z,*t; 
   int orden,n_points,k,h, n_filas;
 
   n_points = 1000000;
@@ -338,7 +338,7 @@ float *velocidadesIniciales(float energia, float alpha){
 // Funcion que dada la energia cinetica me devuelve la magnitud de la velocidad
 
 float magnitudVelocidadInicial(float energia){
-  return sqrt((c*c*(1.0-(1.0/((energia/(masa*c*c))+1.0)))));
+  return sqrt((c*c*(1.0-(1.0/((energia/(masa*c*c))+1.0))*(1.0/((energia/(masa*c*c))+1.0)))));
 }
 
 
