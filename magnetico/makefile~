@@ -1,0 +1,11 @@
+all: particle_in_field.x trayectoria_1.000000_30.000000.dat trayectoria_1.000000_30.000000.pdf
+
+trayectoria_1.000000_30.000000.pdf:trayectoria_1.000000_30.000000.dat
+	python graficar.py trayectoria_1.000000_30.000000.dat
+trayectoria_1.000000_30.000000.dat:particle_in_field.x
+	./particle_in_field.x 1.0 30.0
+particle_in_field.x:dasExperiment2.c
+	cc dasExperiment2.c -lm -o particle_in_field.x
+
+clean:
+	rm *.dat *.pdf

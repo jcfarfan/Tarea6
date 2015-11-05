@@ -1,0 +1,13 @@
+burger.gif: matrizdata500.dat
+	python graficar.py
+
+matrizdata500.dat: graficar.py
+	python graficar.py
+
+graficar.py: solver_burger.x
+	./solver_burger.x
+
+./solver_v.x: solver_v.c
+	cc solver_burger.c -lm -o solver_burger.x
+clean:
+	rm -f *.dat *.gif *.png
